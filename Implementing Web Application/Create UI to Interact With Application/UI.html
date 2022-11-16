@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=Login, initial-scale=1.0">
+    
+    <title>Login</title>
+</head>
+<style>
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background:rgb(111, 111, 139);
+    background-size: cover;
+    overflow-y: hidden;
+    display: flex;
+}
+
+
+.top{
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(to right,rgb(0, 0, 0) 0%,rgba(49, 42, 3, 0.945) 90%);
+    display: flex;
+    align-items: center;
+    position: fixed;
+}
+
+.top h3{
+    color: rgb(178, 183, 230);
+    font-size: 25px;
+    display: block;
+    width: 500px;
+    margin-left: 10px;
+}
+.right{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right form{
+    transition:2s;
+    width: 250px;
+    height: 270px;
+    background:rgb(27, 61, 75);
+    padding: 48px;
+    border-radius: 10px;
+    margin-top: 120px;
+    
+}
+.right form h2{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+.right form input{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(245, 239, 239);
+    height: 25px;
+    margin-top: 20px;
+    background:none;
+    border: none;
+    border-bottom: 1px solid rgba(218, 165, 32, 0.445);
+    padding-left: 10px;
+    width: 160px;
+}
+
+#btn{
+    width: 90px;
+    height: 40px;
+    background-color: rgb(19, 105, 139);
+    border-radius: 5px;
+    position: relative;
+    left: 30px;
+    border: none;
+    top: 10px;
+}
+.right form:hover #btn{
+    background:linear-gradient(to right top,rgba(0, 0, 0, 0.788) 0%,rgba(49, 42, 3, 0.822) 60%);
+    color: rgb(19, 125, 139);
+}
+#btn:hover{
+    background-color: black;
+}
+.right form:hover input{
+    border-bottom: 1px solid rgba(5, 4, 2, 0.445);
+
+}
+.right form:hover input::placeholder{
+    color: black;
+}
+.reg{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+.right a{
+    text-decoration: none;
+    color: black;
+    background-color: rgba(0, 195, 255, 0.616);
+    display: block;
+    width: 120px;
+    height: 40px;
+    border-radius:5px;
+    text-align: center;
+    padding-top: 10px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+input::placeholder{
+    color: rgba(255, 255, 255, 0.521);
+    font-weight: lighter;
+    font-size: 13px;
+}
+</style>
+<body>
+    <div class="top">
+        <h3>NEWS TRACKER</h3>
+    </div>
+    <div class="container">
+        <div class="left">
+            
+        </div>
+        <div class="right">
+            
+            <a href="register">Register</a>
+            
+            <form action="/login" method="post">
+                <div class="msg">{{ msg }}</div>
+                <h2>LOGIN</h2>
+                <input type="text" name="username" placeholder="Username" id="username"><br>
+                <input type="password" name="password" placeholder="Password" id="password"><br>
+                <input type="submit" id="btn" value="LOGIN">
+            </form> 
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    window.watsonAssistantChatOptions = {
+        integrationID: "cd6753a2-76fe-4af5-b73c-c7d998962504", // The ID of this integration.
+        region: "au-syd", // The region your integration is hosted in.
+        serviceInstanceID: "2e663844-6d94-4320-a6e0-79d3a8e2b775", // The ID of your service instance.
+        onLoad: function (instance) { instance.render(); }
+    };
+    setTimeout(function () {
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+    });
+</script>
