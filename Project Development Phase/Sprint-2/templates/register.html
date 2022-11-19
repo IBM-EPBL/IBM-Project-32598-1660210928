@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=Login, initial-scale=1.0">
+    <link rel="stylesheet" href="register.css">
+    <title>Register</title>
+</head>
+<style>
+    *{
+    margin:0;
+    padding:0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background:rgb(178, 183, 230);
+    background-size: cover;
+    overflow-y: hidden;
+    display: flex;
+}
+
+.top{
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(to right,rgb(0, 0, 0) 0%,rgba(49, 42, 3, 0.945) 90%);
+    display: flex;
+    align-items: center;
+    position: fixed;
+}
+
+.top h3{
+    color: rgb(28, 93, 146);
+    font-size: 25px;
+    display: block;
+    width: 500px;
+    margin-left: 10px;
+}
+.right{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right form{
+    transition:2s;
+    width: 700px;
+    height: 470px;
+    background:rgb(27, 61, 75);
+    padding: 48px;
+    border-radius: 10px;
+    margin-top: 120px;
+    padding-left: 200px;
+    
+}
+.right form h2{
+    text-align: center;
+    color: black;
+    margin-right: 160px;
+}
+.right form input{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(233, 233, 233);
+    height: 25px;
+    margin-top: 30px;
+    background:none;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.445);
+    padding-left: 10px;
+    width: 280px;
+   
+}
+
+.right form:hover h2{
+    color: rgb(32, 85, 128);;
+    text-align: center;
+    margin-right: 180px;
+}
+#btn{
+    width: 120px;
+    height: 40px;
+    background-color: rgb(37, 34, 18);
+    border-radius: 5px;
+    position: relative;
+    left: 90px;
+    border: none;
+    top: -10px;
+    color: rgb(255, 255, 255);
+}
+.right form:hover #btn{
+    background:linear-gradient(to right top,rgba(0, 0, 0, 0.788) 0%,rgba(49, 42, 3, 0.822) 60%);
+    color: rgb(139, 121, 19);
+    cursor: pointer;
+}
+#btn:hover{
+    background-color: black;
+}
+.right form:hover input{
+    border-bottom:1px solid rgb(253, 253, 253);
+
+}
+.right form:hover input::placeholder{
+    color: rgb(255, 255, 255);
+}
+.reg{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+.right #go{
+    text-decoration: none;
+    color: black;
+    background-color: rgba(0, 162, 255, 0.616);
+    display: block;
+    width: 120px;
+    height: 40px;
+    border-radius:5px;
+    text-align: center;
+    padding-top: 10px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+input::placeholder{
+    color: black;
+    font-weight: lighter;
+    font-size: 13px;
+}
+
+</style>
+<body>
+    <div class="top">
+        <h3>NEWS TRACKER</h3>
+    </div>
+    <div class="container">
+        
+        <div class="right">
+            
+            <a href="backlogin" id="go">Go Back</a>
+            
+            <form action="/register" method="post">
+                <div class="msg">{{ msg }}</div>
+                <h2>REGISTER</h2>
+                <input type="text" name="username" placeholder="Username"><br>
+                <input type="mail" name="email" placeholder="Mail id" ><br>
+                <input type="number" name="phone_num" placeholder="Phone Number"><br>
+                <input type="password" name="password" placeholder="Password"><br>
+                <input type="password" name="confirm_password" placeholder="Confirm password"><br>
+                <input type="submit" id="btn" value="REGISTER">
+               
+            </form> 
+        </div>
+    </div>
+</body>
+</html>
