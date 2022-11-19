@@ -22,16 +22,7 @@ def backlogin():
 @app.route('/about')
 def about():
     return render_template('about.html') 
-
-@app.route('/logout')
-def logout():
-   session.pop('loggedin', None)
-   session.pop('id', None)
-   session.pop('username', None)
-   return render_template('login.html')
-
      
-
 @app.route('/login',methods =['GET', 'POST'])
 def login():
     global userid
