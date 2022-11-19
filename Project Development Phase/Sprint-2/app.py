@@ -18,18 +18,6 @@ def homer():
 @app.route('/backlogin')
 def backlogin():
     return render_template('login.html')
-
-@app.route('/about')
-def about():
-    return render_template('about.html') 
-
-@app.route('/logout')
-def logout():
-   session.pop('loggedin', None)
-   session.pop('id', None)
-   session.pop('username', None)
-   return render_template('login.html')
-
      
 
 @app.route('/login',methods =['GET', 'POST'])
@@ -174,18 +162,6 @@ def entertainment():
         'articles': r['articles']
     }
     return render_template('entertainment.html',cases = case)    
-
-@app.route('/search', methods =['GET', 'POST'])
-def search():
-    s = request.form['search']
-    today = date.today()
-    dat = today.strftime("%Y/%m/%d")
-    url ="https://newsapi.org/v2/everything?q="+s+"&from="+ dat+"&sortBy=popularity&apiKey=660a62eb9a6445a7b887ad991e40f4cb"
-    r= requests.get(url).json()
-    case = {
-        'articles': r['articles']
-    }
-    return render_template('search.html',cases = case)       
 
 
 if __name__=='__main__':
