@@ -19,19 +19,6 @@ def homer():
 def backlogin():
     return render_template('login.html')
 
-@app.route('/about')
-def about():
-    return render_template('about.html') 
-
-@app.route('/logout')
-def logout():
-   session.pop('loggedin', None)
-   session.pop('id', None)
-   session.pop('username', None)
-   return render_template('login.html')
-
-     
-
 @app.route('/login',methods =['GET', 'POST'])
 def login():
     global userid
@@ -108,84 +95,6 @@ def register():
         msg = 'Please fill out the form !'
         return render_template('register.html', msg = msg)
     return render_template('register.html', msg = msg)  
-
-
-
-
-@app.route('/index')
-def index():
-    url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=660a62eb9a6445a7b887ad991e40f4cb"
-    r= requests.get(url).json()
-    case = {
-        'articles': r['articles']
-    }
-    return render_template('index.html',cases = case)    
-
-@app.route('/sports')
-def sports():
-    url = "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=660a62eb9a6445a7b887ad991e40f4cb"
-    r= requests.get(url).json()
-    case = {
-        'articles': r['articles']
-    }
-    return render_template('sports.html',cases = case)
-
-@app.route('/business')
-def business():
-    url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=660a62eb9a6445a7b887ad991e40f4cb"
-    r= requests.get(url).json()
-    case = {
-        'articles': r['articles']
-    }
-    return render_template('business.html',cases = case)
-
-@app.route('/technology')
-def technology():
-    url = "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=660a62eb9a6445a7b887ad991e40f4cb"
-    r= requests.get(url).json()
-    case = {
-        'articles': r['articles']
-    }
-    return render_template('technology.html',cases = case)
-
-@app.route('/science')
-def science():
-    url = "https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=660a62eb9a6445a7b887ad991e40f4cb"
-    r= requests.get(url).json()
-    case = {
-        'articles': r['articles']
-    }
-    return render_template('science.html',cases = case)
-
-@app.route('/health')
-def health():
-    url = "https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=660a62eb9a6445a7b887ad991e40f4cb"
-    r= requests.get(url).json()
-    case = {
-        'articles': r['articles']
-    }
-    return render_template('health.html',cases = case)
-
-@app.route('/entertainment')
-def entertainment():
-    url = "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=660a62eb9a6445a7b887ad991e40f4cb"
-    r= requests.get(url).json()
-    case = {
-        'articles': r['articles']
-    }
-    return render_template('entertainment.html',cases = case)    
-
-@app.route('/search', methods =['GET', 'POST'])
-def search():
-    s = request.form['search']
-    today = date.today()
-    dat = today.strftime("%Y/%m/%d")
-    url ="https://newsapi.org/v2/everything?q="+s+"&from="+ dat+"&sortBy=popularity&apiKey=660a62eb9a6445a7b887ad991e40f4cb"
-    r= requests.get(url).json()
-    case = {
-        'articles': r['articles']
-    }
-    return render_template('search.html',cases = case)       
 
 
 if __name__=='__main__':
